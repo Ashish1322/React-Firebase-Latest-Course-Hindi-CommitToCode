@@ -5,11 +5,17 @@ function App() {
   var name2 = "Umesh";
   var nme2 = "Mahesh";
 
+  function temp(message) {
+    alert(message);
+  }
+
   var age = 2;
 
   return (
     <div>
       {age >= 18 ? <h1>You can Drive</h1> : <h1>You cannot Drive Drive</h1>}
+
+      <button onClick={() => temp("Subscribe")}>Click Me</button>
 
       <div style={{ display: "flex" }}>
         <Card
