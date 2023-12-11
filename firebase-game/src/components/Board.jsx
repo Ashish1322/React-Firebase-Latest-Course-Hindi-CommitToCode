@@ -1,15 +1,19 @@
 import { useContext } from "react";
-import { AuthContext } from "../AuthContext";
+import { GameContext } from "../GameContext";
 import Cell from "./Cell";
 
 export default function Board() {
-  const { gameState } = useContext(AuthContext);
+  const { gameState, player, winner } = useContext(GameContext);
 
   return (
-    <div className="board">
-      {gameState.map((item, index) => (
-        <Cell key={index} value={item} />
-      ))}
+    <div>
+      <p>Turn : {player}</p>
+      {winner != "" && <p>Winner is : {winner}</p>}
+      <div className="board">
+        {gameState.map((item, index) => (
+          <Cell key={index} index={index} value={item} />
+        ))}
+      </div>
     </div>
   );
 }

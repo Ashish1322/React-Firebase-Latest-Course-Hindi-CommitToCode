@@ -15,17 +15,6 @@ export default function AuthContextProviderMain({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const [gameState, setGameState] = useState([
-    "X",
-    "O",
-    "X",
-    "O",
-    "X",
-    "O",
-    "X",
-    "O",
-    "X",
-  ]);
   const login = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
@@ -89,7 +78,7 @@ export default function AuthContextProviderMain({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, signup, forgetPassword, logout, gameState }}
+      value={{ user, login, signup, forgetPassword, logout }}
     >
       {children}
     </AuthContext.Provider>
